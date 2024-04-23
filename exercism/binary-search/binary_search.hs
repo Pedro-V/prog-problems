@@ -1,0 +1,1 @@
+binarySearchHelper :: [Int] -> [Char] -> 
