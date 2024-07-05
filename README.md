@@ -7,8 +7,7 @@ For every file `site/challenge/challenge.<language extension>`,
 I try to complete the site's challenge using idiomatic and elegant programs written in that language.
 
 Also, the code style differs from those in competitive programming, where very
-short variable names and other time-saving, but unreadable, practices are
-common.
+short variable names and other time-saving, but unreadable, practices are common.
 
 The current sites are:
 
@@ -35,10 +34,12 @@ The current sites are:
 * [LightOJ](https://lightoj.com/problems/category)
 * [Neps Academy](https://neps.academy/)
 * [Timus](https://acm.timus.ru/problemset.aspx)
-* [Peking University Problems](http://poj.org/problemlist)
+* [Peking University Problems (POJ)](http://poj.org/problemlist)
 * [Project Euler](https://projecteuler.net/about)
 * [Protohackers](https://protohackers.com/)
 * [Rosalind](https://rosalind.info/problems/locations/)
 * [SPOJ](https://www.spoj.com/problems/classical/)
+* [DMOJ](https://dmoj.ca/problems/)
+* [UVa](https://onlinejudge.org/)
 * [Synacor Challenge](https://github.com/Gyebro/synacor-challenge)
 * [TheHuxley](https://www.thehuxley.com/)
