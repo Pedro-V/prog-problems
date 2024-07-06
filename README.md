@@ -1,13 +1,7 @@
 # Programming Problems
 
-I decided to organize the challenges and contests of educational sites like Codewars,
-Exercism, Codeforces, etc in this directory. 
-
-For every file `site/challenge/challenge.<language extension>`,
-I try to complete the site's challenge using idiomatic and elegant programs written in that language.
-
-Also, the code style differs from those in competitive programming, where very
-short variable names and other time-saving, but unreadable, practices are common.
+Attempted solutions to many online judges/challenge sites.
+Organized roughly like `<site>/<challenge>/<solution-type>.<language-extension>`,
 
 The current sites are:
 

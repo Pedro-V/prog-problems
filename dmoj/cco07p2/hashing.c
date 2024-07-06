@@ -1,6 +1,9 @@
 /*
  * This works by defining a manual hash table for the snowflakes.
  * Each 'bin' is defined by the sum of the snowflake's length, bounded by max(N).
+ *
+ * Worst-case performance is the same as in the naive solution,
+ * but very unlikely to happen in practice.
  */
 #include <stdio.h>
 #include <stdlib.h>
