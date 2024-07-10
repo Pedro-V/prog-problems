@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #define MAX_LEN 256
-#define max(a, b) (a) > (b) ? (a) : (b)
+#define max(a, b) (a > b ? a : b)
 
 typedef struct node {
   int candy;
