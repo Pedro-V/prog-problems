@@ -4,7 +4,7 @@
 #define MAX_COLS 99
 #define NUM_MOVES 8
 
-int move_difs[2][8] = {
+int move_difs[2][NUM_MOVES] = {
   { 1, 1, -1, -1, 2, 2, -2, -2 },
   { 2, -2, 2, -2, 1, -1, 1, -1 }
 };
@@ -83,7 +83,7 @@ void solve(
   int num_rows, int num_cols
 ) {
   int cur_pawn_row, num_moves, knight_takes;
-  static board min_moves;
+  board min_moves;
 
   find_distance(knight_row, knight_col, num_rows, num_cols, min_moves);
 
