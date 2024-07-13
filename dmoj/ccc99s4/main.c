@@ -106,7 +106,7 @@ void solve(
 
   cur_pawn_row = pawn_row, num_moves = 0;
   while (cur_pawn_row < num_rows) {
-    knight_takes = min_moves[cur_pawn_row][pawn_col];
+    knight_takes = min_moves[cur_pawn_row + 1][pawn_col];
 
     if (knight_takes >= 0 && num_moves >= knight_takes &&
         (num_moves - knight_takes) % 2 == 0) {
