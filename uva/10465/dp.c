@@ -1,17 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Dynamic Programming (ie, bottom-up construction of the solution array via looping)
-// version of memoization.c
+/* Dynamic Programming (ie, bottom-up construction of the solution array via looping)
+ * version of memoization.c
+ */
 
 #define MAX_T 10000
 #define max(a, b) (a > b ? a : b)
 
 void solve(int m, int n, int t) {
-  int dp[MAX_T], first, second;
+  int dp[MAX_T], first, second, i;
   dp[0] = 0;
 
-  for (int i = 1; i <= t; i++) {
+  for (i = 1; i <= t; i++) {
     if (i >= m)
       first = dp[i-m];
     else
@@ -42,4 +43,6 @@ int main() {
   int m, n, t;
   while (scanf("%d %d %d", &m, &n, &t) != EOF)
     solve(m, n, t);
+
+  return 0;
 }
