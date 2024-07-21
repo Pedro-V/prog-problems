@@ -36,6 +36,10 @@ void solve(edge *adj_list[], int num_towns, int store[]) {
     found = 0;
     for (state = 0; state <= 1; state++)
       for (j = 1; j <= num_towns; j++) {
+        // Effectively, we break ties in the search for the miminum distance by
+        // giving preference to state 0 nodes.
+        // This is a necessary condition for the algorithm's correctness
+        // Simulate both tie-breaking strategies on sample3.input to see why.
         if (
           !done[state][j] && min_distances[state][j] >= 0 &&
           (min_distance == -1 || min_distances[state][j] < min_distance)
