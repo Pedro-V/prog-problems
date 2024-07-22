@@ -15,16 +15,16 @@ typedef struct edge {
   struct edge *next;
 } edge;
 
-int feed_ants(edge *tree[], int node, double liters, int ants[]) {
+int can_feed(edge *adj_list[], int node, double liters, int ants[]) {
   if (ants[node] != -1)
     return liters >= ants[node];
 
   int enough, all_enough = 1;
-  edge *e = tree[node];
+  edge *e = adj_list[node];
   while (e) {
-    enough = feed_ants(tree, e->to, liters * e->flow, ants);
+    enough = can_feed(adj_list, e->to, liters * e->flow, ants);
     if (!enough && e->is_super_pipe)
-      enough = feed_ants(tree, e->to, square(liters * e->flow), ants);
+      enough = can_feed(adj_list, e->to, square(liters * e->flow), ants);
 
     all_enough = all_enough && enough;
     e = e->next;
@@ -33,32 +33,22 @@ int feed_ants(edge *tree[], int node, double liters, int ants[]) {
   return all_enough;
 }
 
-double find_liters(edge *tree[], int ants[]) {
-  int cur_valid = 0, prev_valid = 0;
-  double cur_liters = 0, prev_liters = 0;
-  double a = 0, b = MAX_LITERS;
-  do {
-    prev_liters = cur_liters;
-    prev_valid = cur_valid;
-    cur_liters = (a + b) / 2;
-    cur_valid = feed_ants(tree, 1, cur_liters, ants);
-
-    if (cur_valid)
-      b = cur_liters;
+void solve(edge *adj_list[], int ants[]) {
+  double low, high, mid;
+  low = 0, high = MAX_LITERS;
+  while (high - low > EPS) {
+    mid = (low + high) / 2;
+    if (can_feed(adj_list, 1, mid, ants))
+      high = mid;
     else
-      a = cur_liters;
-  } while ((!prev_valid || !cur_valid) || fabs(cur_liters - prev_liters) > EPS);
+      low = mid;
+  }
 
-  return cur_liters;
-}
-
-void solve(edge *tree[], int ants[]) {
-  double liters = find_liters(tree, ants);
-  printf("%.3lf\n", liters);
+  printf("%.3lf\n", high);
 }
 
 int main() {
-  edge *tree[MAX_NODES + 1] = {NULL}, *e;
+  edge *adj_list[MAX_NODES + 1] = {NULL}, *e;
   int i, num_nodes, from, to, flow, is_super_pipe;
   int ants[MAX_NODES + 1];
 
@@ -70,12 +60,12 @@ int main() {
     e->to = to;
     e->flow = flow / 100.0;
     e->is_super_pipe = is_super_pipe;
-    e->next = tree[from];
-    tree[from] = e;
+    e->next = adj_list[from];
+    adj_list[from] = e;
   }
 
   for (i = 1; i <= num_nodes; i++)
     scanf("%d", &ants[i]);
 
-  solve(tree, ants);
+  solve(adj_list, ants);
 }
