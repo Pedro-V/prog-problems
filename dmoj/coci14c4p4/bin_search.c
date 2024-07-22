@@ -19,14 +19,14 @@ int can_feed(edge *adj_list[], int node, double liters, int ants[]) {
   if (ants[node] != -1)
     return liters >= ants[node];
 
-  int enough, all_enough = 1;
+  double down_pipe;
+  int all_enough = 1;
   edge *e = adj_list[node];
-  while (e) {
-    enough = can_feed(adj_list, e->to, liters * e->flow, ants);
-    if (!enough && e->is_super_pipe)
-      enough = can_feed(adj_list, e->to, square(liters * e->flow), ants);
-
-    all_enough = all_enough && enough;
+  while (e && all_enough) {
+    down_pipe = liters * e->flow;
+    if (e->is_super_pipe)
+      down_pipe = square(down_pipe);
+    all_enough = can_feed(adj_list, e->to, down_pipe, ants);
     e = e->next;
   }
 
