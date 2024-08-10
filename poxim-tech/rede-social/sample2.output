@@ -1,0 +1,7 @@
+[ OK  ] ADD A
+[ OK  ] ADD B
+[ OK  ] A<-B->A
+[ OK  ] REMOVE A
+[ OK  ] REMOVE B
+[ OK  ] ADD C
+[ OK  ] C<-C->C

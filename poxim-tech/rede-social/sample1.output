@@ -1,0 +1,10 @@
+[ OK  ] ADD Jose da Silva
+[ OK  ] Jose da Silva<-Jose da Silva->Jose da Silva
+[ERROR] ADD Jose da Silva
+[ OK  ] ADD Joao dos Santos
+[ OK  ] ADD Maria da Penha
+[ OK  ] REMOVE Joao dos Santos
+[ERROR] REMOVE Maria da Silva
+[ OK  ] ADD Alan Turing
+[ OK  ] Alan Turing<-Maria da Penha->Jose da Silva
+[ERROR] ?<-Bruno Prado->?

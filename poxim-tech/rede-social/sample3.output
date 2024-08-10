@@ -1,0 +1,7 @@
+[ OK  ] ADD C
+[ OK  ] ADD B
+[ OK  ] ADD A
+[ OK  ] REMOVE B
+[ OK  ] C<-A->C
+[ERROR] ?<-B->?
+[ OK  ] A<-C->A
