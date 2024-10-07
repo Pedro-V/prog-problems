@@ -7,6 +7,7 @@
  * - Increment the hashtable entry for them.
  *
  * On query operations, just check the hash table.
+ * This solution is by Daniel Zingaro (Algorithmic Thinking, 2nd Ed).
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,6 +16,7 @@
 #define hashsize(n) ((unsigned long)1 << (n))
 #define hashmask(n) (hashsize(n) - 1)
 
+// One-at-a-time. Generic hash function from: https://burtleburtle.net/bob/hash/doobs.html
 unsigned long ooat (char *key, unsigned long len, unsigned long bits) {
   unsigned long hash, i;
   for (hash = 0, i = 0; i < len; i++) {
