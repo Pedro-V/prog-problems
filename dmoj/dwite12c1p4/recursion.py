@@ -26,25 +26,28 @@ def tree_streets(node):
         return 0
     return tree_streets(node.left) + tree_streets(node.right) + 4
 
-def build_tree(tree_description, idx):
-    node = Node()
-    if tree_description[idx] == '(':
-        idx += 1
-        node.left, idx = build_tree(tree_description, idx)
-        idx += 1
-        node.right, idx = build_tree(tree_description, idx)
-        idx += 1
-    else:
-        match = re.match(r'\d+', tree_description[idx:])
-        node.candy = int(match.group(0))
-        idx += len(match.group(0))
+def tokenize(s):
+    return s.replace('(', ' ( ').replace(')', ' ) ').split()
 
-    return node, idx
+def parse_tree(s):
+    tokens = iter(tokenize(s))
+    return build_tree(tokens)
+
+def build_tree(tokens):
+    node = Node()
+    token = next(tokens)
+    if token == '(':
+        node.left = build_tree(tokens)
+        node.right = build_tree(tokens)
+        next(tokens)
+    else:
+        node.candy = int(token)
+    return node
 
 def main():
     for _ in range(NUM_CASES):
         tree_description = input()
-        tree, _ = build_tree(tree_description, 0)
+        tree = parse_tree(tree_description)
         candy = tree_candy(tree)
         height = tree_height(tree)
         streets = tree_streets(tree) - height
