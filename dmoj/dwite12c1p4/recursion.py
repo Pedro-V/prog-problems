@@ -1,5 +1,3 @@
-import re
-
 NUM_CASES = 5
 
 class Node:
