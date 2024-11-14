@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// TODO: UVa output RTE.
+
 #define MAX_SOLDIERS 100000
 
 int main() {

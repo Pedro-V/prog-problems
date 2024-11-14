@@ -1,3 +1,5 @@
+# TODO: UVa outputs TLE.
+
 def main():
     while True:
         num_soldiers, num_reports = map(int, input().split())
