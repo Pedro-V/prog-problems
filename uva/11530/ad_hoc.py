@@ -14,6 +14,7 @@ def main():
             for key_set in keys:
                 if c in key_set:
                     num_pressings += key_set.index(c) + 1
+                    break
         print(f'Case #{i}: {num_pressings}')
 
 if __name__ == '__main__':
