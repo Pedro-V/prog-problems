@@ -1,0 +1,5 @@
+4
+( ( foo ) bar ) )
+( foo bar baz 123 )
+( begin ( display hello-world ) ( newline ) )
+( ( foo bar ) baz 123 )
