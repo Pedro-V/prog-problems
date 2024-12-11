@@ -1,30 +1,30 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
-#define SIZE 200
+#define SIZE 100000
+#define STRLEN 200
 
-int equal_prefix_size(char *s1, char *s2, int len) {
-  int size = 0, i;
-  // len - 1 because we don't want to read the final '\n' fgets puts in the buffers.
-  for (i = 0; i < len - 1; i++)
-    if (s1[i] == s2[i])
-      size++;
-    else
-      break;
-  return size;
+int len_common_prefix(char *s1, char *s2) {
+  int i = 0;
+  while (s1[i] == s2[i]) i++;
+  return i;
+}
+
+int my_strcmp(const void *a, const void *b) {
+  return strcmp((const char *)a, (const char *)b);
 }
 
 int main() {
-  char prev_str[SIZE + 1], cur_str[SIZE + 1];
-  int num_phones, chars_saved, i, phone_len;
+  static char phones[SIZE][STRLEN + 1];
+  int num_phones, chars_saved, i;
   while (scanf("%d ", &num_phones) != EOF) {
+    for (i = 0; i < num_phones; i++)
+      scanf("%s", phones[i]);
+    qsort(phones, num_phones, STRLEN + 1, my_strcmp);
     chars_saved = 0;
-    fgets(prev_str, SIZE + 1, stdin);
-    phone_len = strlen(prev_str);
-    for (i = 1; i < num_phones; i++) {
-      fgets(cur_str, SIZE + 1, stdin);
-      chars_saved += equal_prefix_size(prev_str, cur_str, phone_len);
-    }
+    for (i = 1; i < num_phones; i++)
+      chars_saved += len_common_prefix(phones[i-1], phones[i]);
     printf("%d\n", chars_saved);
   }
 }
