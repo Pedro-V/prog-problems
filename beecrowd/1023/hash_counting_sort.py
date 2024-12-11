@@ -7,14 +7,10 @@
 
 from collections import defaultdict
 
-def counting_sort(table, high):
-    present = [False] * (high + 1)
+def counting_sort(table, high=200):
     sorted_arr = []
-
-    for x in table:
-        present[x] = True
     for i in range(high + 1):
-        if present[i]:
+        if i in table:
             elem = table[i], i
             sorted_arr.append(elem)
     return sorted_arr
