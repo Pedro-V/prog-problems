@@ -1,3 +1,8 @@
+# Essa é uma solução que gera todas as possibilidades de jogadas, usando
+# combinatória.
+# Como o tamanho da entrada é uma constante pequena, não tem risco de TLE
+# fazendo ela.
+
 from itertools import combinations, permutations
 
 NUM_CARDS = 52
