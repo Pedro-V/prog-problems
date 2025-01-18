@@ -1,20 +1,22 @@
 def can_partition(arr, max_sum, c):
     current_sum = 0
     required_partitions = 1
+    i = 0
 
-    for num in arr:
-        if current_sum + num > max_sum:
+    while i < len(arr):
+        if current_sum + arr[i] > max_sum:
             required_partitions += 1
-            current_sum = num
             if required_partitions > c:
                 return False
+            current_sum = 0
         else:
-            current_sum += num
+            current_sum += arr[i]
+            i += 1
     
     return True
 
 def minimize_max_sum(arr, c):
-    low = max(arr)
+    low = 0
     high = sum(arr)
     
     while low < high:
