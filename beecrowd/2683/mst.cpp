@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
-
 using namespace std;
+
 using iii = tuple<int, int, int>;
 
 void sort_tuples(vector<iii>& xs, bool reverse) {
@@ -26,7 +26,7 @@ int union_sets(vector<int>& sets, vector<int>& sizes, int s1, int s2) {
   int r1 = find(sets, s1), r2 = find(sets, s2);
   if (sizes[r2] > sizes[r1])
     swap(r1, r2);
-  sizes[r1]++;
+  sizes[r1] += sizes[r2];
   sets[r2] = r1;
   return r1;
 }
