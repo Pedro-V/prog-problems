@@ -1,3 +1,9 @@
+// Solution here involves noticing that all valid combinations of (connected) towers have
+// an even number of Bs.
+// This is because if you start with all As, and use the magic wand (doesn't
+// matter where and how many times) you will have an even number of Bs.
+// Note that this rule is per-component of the graph.
+
 #include <bits/stdc++.h>
 using namespace std;
 
