@@ -1,4 +1,4 @@
-# Slight modification of Kuhn's topological sort.
+# Slight modification of Kahn's topological sort.
 def has_cycle(incoming, outgoing):
     n = len(incoming)
     nodes_no_incoming_edge = [i for i in range(n) if not incoming[i]]
