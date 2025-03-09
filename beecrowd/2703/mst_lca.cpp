@@ -12,6 +12,7 @@ using namespace std;
  * Step 1: Find the MST, T, of the given graph G. We use an adjacency list for T.
  *
  * Step 2: Build two arrays using Binary Lifting on T: ancestor and maxEdge.
+ *
  * ancestor[i][j] informs the 2^j-th ancestor of the node i, in T.
  * If no such ancestor exists, it's 0.
  *
