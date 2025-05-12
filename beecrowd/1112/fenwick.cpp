@@ -67,6 +67,9 @@ ll cost(const vector<FenwickTree>& fts, int p, ii A, ii B) {
 }
 
 int main() {
+  ios::sync_with_stdio(false);
+  cin.tie(NULL);
+
   int n, m, p, q, k, x, y, z, w, i;
   char op;
 
@@ -89,5 +92,6 @@ int main() {
         cout << cost(fts, p, {x, y+1}, {z, w+1}) << '\n';
       }
     }
+    cout << '\n';
   }
 }
